@@ -7,6 +7,12 @@ options     head
         ${0:TARGET}
     }
 
+snippet     main
+abbr        fn main() {}
+    fn main() {
+        ${0:TARGET}
+    }
+
 snippet     fn-
 abbr        fn () {}
 options     head
@@ -65,6 +71,7 @@ abbr        bitflags!
     }
 
 snippet     pln
+alias       pr
 abbr        println!
     println!(${1:"\{\}"}, ${0:TARGET});
 
