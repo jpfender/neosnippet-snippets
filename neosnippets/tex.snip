@@ -225,7 +225,7 @@ alias   \begin{document} \document
 	\end{document}
 
 snippet figure
-alias   \begin{figure} \figure
+alias   \begin{figure} \figure fig
 	\begin{figure}[${1}]
 		\centering
 		\includegraphics[${2:width=${3\}}]{${4}}
@@ -321,37 +321,44 @@ alias   \begin{Vmatrix} \Vmatrix
 
 snippet \part
 alias   part \part{
-	\part{${1}}
+	\part{${1}}%
+	\label{${2}}
 	${0:TARGET}
 
 snippet \chapter
-alias   chapter \chapter{
-	\chapter{${1}}
+alias   chapter \chapter{ chap
+	\chapter{${1}}%
+	\label{ch:${2}}
 	${0:TARGET}
 
 snippet \section
-alias   section \section{
-	\section{${1}}
+alias   section \section{ sec
+	\section{${1}}%
+	\label{sec:${2}}
 	${0:TARGET}
 
 snippet \subsection
-alias   subsection \subsection{
-	\subsection{${1}}
+alias   subsection \subsection{ sub
+	\subsection{${1}}%
+	\label{sub:${2}}
 	${0:TARGET}
 
 snippet \subsubsection
-alias   subsubsection \subsubsection{
-	\subsubsection{${1}}
+alias   subsubsection \subsubsection{ ssub
+	\subsubsection{${1}}%
+	\label{ssub:${2}}
 	${0:TARGET}
 
 snippet \paragraph
-alias   paragraph \paragraph{
-	\paragraph{${1}}
+alias   paragraph \paragraph{ par
+	\paragraph{${1}}%
+	\label{par:${2}}
 	${0:TARGET}
 
 snippet \subparagraph
-alias   subparagraph \subparagraph{
-	\subparagraph{${1}}
+alias   subparagraph \subparagraph{ subp
+	\subparagraph{${1}}%
+	\label{${2}}
 	${0:TARGET}
 
 # ========== MATH ==========
@@ -422,7 +429,7 @@ alias   \begin{itshape} \itshape
 	\end{itshape}
 
 snippet \textbf
-alias   textbf \textbf{
+alias   textbf \textbf{ bf
 	\textbf{${1:TARGET}}${0}
 
 snippet \textmd
@@ -454,7 +461,7 @@ alias   textsc \textsc{
 	\textsc{${1:TARGET}}${0}
 
 snippet \textit
-alias   textit \textit{
+alias   textit \textit{ tit
 	\textit{${1:TARGET}}${0}
 
 # ==== BEAMER ====
@@ -462,6 +469,15 @@ snippet frame
 alias   \begin{frame} \frame
 	\begin{frame}{${1:#:frametitle}}
 		${2:TARGET}
+	\end{frame}
+
+snippet frt
+	\begin{frame}[plain]
+		\huge{${1:#:title}}
+	\end{frame}
+
+	\begin{frame}{${2:#:title}}
+		${3:TARGET}
 	\end{frame}
 
 snippet block
@@ -483,16 +499,16 @@ alias   \begin{alertblock}
 	\end{alertblock}
 
 snippet columns
-alias   \begin{columns} \columns
-	\begin{columns}
-		\begin{column}{${1:#:width}${2:\\\textwidth}}
+alias   \begin{columns} \columns cols
+	\begin{columns}[T]
+		\begin{column}{${1:0.49}${2:\\\textwidth}}
 			${0:#:body}
 		\end{column}
 	\end{columns}
 
 snippet column
-alias   \begin{column} \column
-	\begin{column}{${1:#:width}${2:\\\textwidth}}
+alias   \begin{column} \column col
+	\begin{column}{${1:0.49}${2:\\\textwidth}}
 		${0:#:body}
 	\end{column}
 
@@ -568,3 +584,33 @@ alias   \ref
 snippet label
 alias   \label
 	\label{${1}}${0}
+
+snippet gls
+	\gls*{${1}}${0}
+
+snippet cref
+	\cref{${1}}${0}
+
+snippet rarrow
+alias	rightarrow
+	$\rightarrow$
+
+snippet Rarrow
+alias	Rightarrow
+	$\Rightarrow$
+
+snippet larrow
+alias	leftarrow
+	$\leftarrow$
+
+snippet Larrow
+alias	Leftarrow
+	$\Leftarrow$
+
+snippet lrarrow
+alias	leftrightarrow
+	$\leftrightarrow$
+
+snippet Lrarrow
+alias	LRarrow Leftrightarrow
+	$\Leftrightarrow$
