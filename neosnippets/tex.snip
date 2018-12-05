@@ -576,6 +576,12 @@ snippet fullcite
 alias   \fullcite
 	\fullcite{${1}}${0}
 
+snippet authorcite
+	${1:author}~\cite{${2:ref}}${0}
+
+snippet etalcite
+	${1:author}~\emph{et~al.}~\cite{${2:ref}}${0}
+
 # ========== OTHERS ==========
 snippet usepackage
 alias   \usepackage
